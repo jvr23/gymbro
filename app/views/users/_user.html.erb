@@ -1,0 +1,51 @@
+<div id="<%= dom_id user %>">
+  
+  <p>
+    <% if user.profile_pic.attached? %>
+      <%= image_tag user.profile_pic, class:"rounded-full w-40", alt:"profile picture" %>
+    <% else %>
+      <%= image_tag "default-user.png", alt:"profile picture" %>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= user.name %>
+  </p>
+
+  <p>
+    <strong>Lastname:</strong>
+    <%= user.lastname %>
+  </p>
+
+  <p>
+    <strong>Mail:</strong>
+    <%= user.email %>
+  </p>
+
+  <p>
+    <strong>Account type:</strong>
+    <%= user.account.name %>
+  </p>
+
+  <p>
+    <strong>Age:</strong>
+    <%= user.age %>
+  </p>
+
+  <div class="options">
+    <%# <%=current_user.account.name%>
+    <% if  current_user.account.name == 'admin'%>
+      <%= link_to "Crear Usuario", new_user_registration_path %>
+      <%= link_to "Gimnasios", gyms_path %>
+    <% elsif current_user.account.name == 'owner' %>
+      <%= link_to "Mis Gimnasios", gyms_path %>
+    <%else%>
+      <%= link_to "Gimnasios Visitados", gyms_path %>
+    <% end %>
+
+
+  </div>
+
+
+</div>

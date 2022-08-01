@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @gym %>
+
+<div>
+  <%= link_to "Back to gyms", gyms_path %>
+  <% if current_user.account.name == 'admin' || current_user.account.name == 'owner'%>
+  <%= link_to "Edit this gym", edit_gym_path(@gym) %>
+  <% end %>
+
+  <%= button_to "Destroy this gym", @gym, method: :delete %>
+</div>

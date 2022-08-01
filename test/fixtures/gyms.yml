@@ -1,0 +1,25 @@
+# == Schema Information
+#
+# Table name: gyms
+#
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  address    :string           not null
+#  opens      :time             not null
+#  closes     :time             not null
+#  owner_id   :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  name: MyString
+  address: MyString
+  opens: 2022-07-19 23:32:08
+  closes: 2022-07-19 23:32:08
+
+two:
+  name: MyString
+  address: MyString
+  opens: 2022-07-19 23:32:08
+  closes: 2022-07-19 23:32:08

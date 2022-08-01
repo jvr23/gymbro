@@ -1,0 +1,22 @@
+<div id="<%= dom_id gym %>">
+  <p>
+    <strong>Name:</strong>
+    <%= gym.name %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= gym.address %>
+  </p>
+
+  <p>
+    <strong>Opens:</strong>
+    <%= gym.opens.to_formatted_s(:time)%>
+  </p>
+
+  <p>
+    <strong>Closes:</strong>
+    <%= gym.closes.to_formatted_s(:time) %>
+  </p>
+
+</div>

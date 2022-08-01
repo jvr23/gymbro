@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: visits
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer          not null
+#  gym_id     :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  user: one
+  gym: one
+
+two:
+  user: two
+  gym: two
