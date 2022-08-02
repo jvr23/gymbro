@@ -17,7 +17,8 @@
 #
 class User < ApplicationRecord
   has_one_attached :profile_pic
-  after_commit :set_default_avatar, on: %i[create update]
+  after_commit :set_default_avatar, on: %i[create]
+  after_commit :send_welcome_mail, on: %i[create]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -41,5 +42,10 @@ class User < ApplicationRecord
           content_type: "image/png"
       )
     end
+  end
+
+  def send_welcome_mail
+    UserMailer.welcome(self.email).deliver_now
+    BecomePremiumJob.set(wait: 1.week).perform_later self.email
   end
 end
