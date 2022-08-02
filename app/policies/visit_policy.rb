@@ -16,6 +16,6 @@ class VisitPolicy < ApplicationPolicy
     # end
   
     def create?
-      user_is_premium? || user_is_admin?
+      return true if user_is_premium? || user_is_admin?
     end
   end

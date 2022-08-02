@@ -12,6 +12,6 @@ module UsersHelper
   end
 
   def user_is_premium?
-    @user.account.name == "admin"
+    @user.account.name == "premium"
   end
 end

@@ -1,6 +1,8 @@
 import consumer from "channels/consumer"
 
-consumer.subscriptions.create("NotificationChannel", {
+const user = document.getElementById("user_id");
+
+consumer.subscriptions.create({channel: "NotificationChannel", user_id: user}, {
   connected() {
     // Called when the subscription is ready for use on the server
   },
@@ -12,5 +14,8 @@ consumer.subscriptions.create("NotificationChannel", {
   received(data) {
     // Called when there's incoming data on the websocket for this channel
     console.log(data)
+    // if(data.action == "new_notification"){
+    //   cosole.log(`New notification! Now you have ${data.message} unread notifications`)
+    // }
   }
 });
