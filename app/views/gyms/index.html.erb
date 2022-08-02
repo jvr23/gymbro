@@ -10,5 +10,6 @@
     </p>
   <% end %>
 </div>
-
-<%= link_to "New gym", new_gym_path %>
+<% if policy(@gyms).new? %>
+  <%= link_to "New gym", new_gym_path %>
+<% end %>

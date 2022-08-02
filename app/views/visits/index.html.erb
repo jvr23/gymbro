@@ -10,5 +10,6 @@
     </p>
   <% end %>
 </div>
-
-<%= link_to "New visit", new_visit_path %>
+<% if policy(@visits).create? %>
+  <%= link_to "New visit", new_visit_path %>
+<% end %>

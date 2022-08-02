@@ -1,11 +1,11 @@
 class GymsController < ApplicationController
   before_action :set_gym, only: %i[ show edit update destroy ]
-  before_action :check_gym, only: %i[ edit update destroy ]
-  before_action :my_gyms, only: %i[ index ]
+  # before_action :check_gym, only: %i[ edit update destroy ]
+  # before_action :my_gyms, only: %i[ index ]
 
   # GET /gyms or /gyms.json
   def index
-    @gyms
+    @gyms = policy_scope(Gym)
   end
 
   # GET /gyms/1 or /gyms/1.json
@@ -14,7 +14,7 @@ class GymsController < ApplicationController
 
   # GET /gyms/new
   def new
-    @gym = Gym.new
+    @gym = authorize Gym.new
   end
 
   # GET /gyms/1/edit
@@ -23,7 +23,7 @@ class GymsController < ApplicationController
 
   # POST /gyms or /gyms.json
   def create
-    @gym = Gym.new(gym_params)
+    @gym = authorize Gym.new(gym_params)
 
     respond_to do |format|
       if @gym.save
@@ -62,27 +62,27 @@ class GymsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_gym
-      redirect_to gyms_path unless (user_is_owner? && user_own_gym params[:id])|| user_is_admin?
-      # @gym = Gym.find(params[:id])
-    end
-
-    def set_gym
-      if current_user.account.name != "owner" || current_user.account.name != "owner"
-        redirect_to gyms_path
-      end
+      # redirect_to gyms_path unless (user_is_owner? && user_own_gym params[:id])|| user_is_admin?
       @gym = Gym.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
-    def gym_params
-      params.require(:gym).permit(:name, :address, :opens, :closes)
-    end
+    # def set_gym
+    #   if current_user.account.name != "owner" || current_user.account.name != "owner"
+    #     redirect_to gyms_path
+    #   end
+    #   @gym = Gym.find(params[:id])
+    # end
 
-    def my_gyms
-      if user_is_owner?
-        @gyms = Gym.where(user_id: current_user.id)
-      else
-        @gyms = Gym.all
-      end
-    end
+    # Only allow a list of trusted parameters through.
+    # def gym_params
+    #   params.require(:gym).permit(:name, :address, :opens, :closes)
+    # end
+
+    # def my_gyms
+    #   if user_is_owner?
+    #     @gyms = Gym.where(user_id: current_user.id)
+    #   else
+    #     @gyms = Gym.all
+    #   end
+    # end
 end

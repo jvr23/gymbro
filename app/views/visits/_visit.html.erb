@@ -1,12 +1,16 @@
 <div id="<%= dom_id visit %>">
+<h3>Gimansios Visitados</h3>
   <p>
-    <strong>User:</strong>
-    <%= visit.user_id %>
+    <%# <strong>User:</strong> %>
+    <%# visit.user.name %>
   </p>
 
   <p>
-    <strong>Gym:</strong>
-    <%= visit.gym_id %>
+    <strong>Gimnasio:</strong>
+    <%= visit.gym.name %>
   </p>
+
+  <p>Lo visitaste el día</p>
+  <span><%= visit.created_at.strftime('%B %e at %l:%M %p') %></span>
 
 </div>

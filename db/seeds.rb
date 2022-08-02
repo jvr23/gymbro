@@ -19,7 +19,7 @@ puts "**********************************"
 User.create([{name: 'admin', lastname: 'admin', age: 999, account_id: 1, email: "admin@gymbro.com", password:123123},
   {name: 'owner', lastname: 'owner', age: 999, account_id: 2, email: "owner@gymbro.com", password:123123},
   {name: 'free', lastname: 'free', age: 999, account_id: 3, email: "free@gymbro.com", password:123123},
-  {name: 'premium', lastname: 'premium', age: 999, account_id: 4, email: "pemium@gymbro.com", password:123123}])
+  {name: 'premium', lastname: 'premium', age: 999, account_id: 4, email: "premium@gymbro.com", password:123123}])
   puts "................................"
   puts "Done"
   puts "................................"
