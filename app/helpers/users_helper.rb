@@ -1,6 +1,6 @@
 module UsersHelper
   def user_is_owner?
-    @user.account.name == "owner"
+    current_user.account.name == "owner"
   end
 
   def user_own_gym?
@@ -8,10 +8,14 @@ module UsersHelper
   end
   
   def user_is_admin? 
-    @user.account.name == "admin"
+    current_user.account.name == "admin"
   end
 
   def user_is_premium?
-    @user.account.name == "premium"
+    current_user.account.name == "premium"
+  end
+
+  def user_owns_gym?
+    user_is_owner? && user_own_gym?
   end
 end

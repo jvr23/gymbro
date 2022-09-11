@@ -1,12 +1,20 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @gym %>
-
-<div>
-  <%= link_to "Back to gyms", gyms_path %>
-  <% if current_user.account.name == 'admin' || current_user.account.name == 'owner'%>
-  <%= link_to "Edit this gym", edit_gym_path(@gym) %>
-  <% end %>
-
-  <%= button_to "Destroy this gym", @gym, method: :delete %>
-</div>
+<main class="pt-16">
+  <div id="gyms" class="container bg-white text-center mx-auto pt-16 pb-16">
+    <%= render @gym %>
+    <div class="sm:flex sm:justify-evenly sm:items-baseline py-6">
+    <div>
+      <%= link_to "Regresar", gyms_path, class:"inline-block rounded w-4/5 p-2 bg-red-600 text-white font-semibold cursor-pointer border border-black text-center hover:bg-red-400 sm:w-auto"%>
+    </div>
+    <div class="py-6">
+      <% if policy(@gym).edit?%>
+      <%= link_to "Editar Gimnasio", edit_gym_path(@gym), class:"inline-block rounded w-4/5 p-2 bg-indigo-700 text-white font-semibold border border-black text-center transition cursor-pointer hover:bg-indigo-500 sm:w-auto" %>
+      <% end %>
+    </div>
+    <div>
+    <% if policy(@gym).destroy? && @gym.visits.count == 0%>
+      <%= button_to "Eliminar Gimnasio", @gym, method: :delete, class:"inline-block rounded w-4/5 p-2 bg-transparent text-black font-semibold border border-black text-center transition cursor-pointer hover:bg-black hover:text-white sm:w-auto" %>
+    <% end %>
+    </div>
+    </div>
+  </div>
+</main>

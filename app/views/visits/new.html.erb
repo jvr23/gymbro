@@ -1,9 +1,13 @@
-<h1>New visit</h1>
+<div class="container mx-auto pt-16">
+  <div class="w-full bg-white mx-auto p-10 sm:w-4/12 mt-24">
+    <h1 class="text-xl font-bold text-red-600 text-center">Registar Visita</h1>
 
-<%= render "form", visit: @visit %>
+    <%= render "form", visit: @visit %>
 
-<br>
+    <br>
 
-<div>
-  <%= link_to "Back to visits", visits_path %>
+    <div class="text-center">
+      <%= link_to "Regresar", visits_path, class:"inline-block rounded w-4/5 p-2 bg-transparent text-black font-semibold border border-black text-center transition cursor-pointer hover:bg-black mb-4 hover:text-white sm:inline-block" %>
+    </div>
+  </div>
 </div>

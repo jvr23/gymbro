@@ -12,26 +12,26 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.label :name, style: "display: block", class:"text-red-600" %>
+    <%= form.text_field :name, class: "block w-full px-3 rounded-md text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500" %>
   </div>
 
   <div>
-    <%= form.label :lastname, style: "display: block" %>
-    <%= form.text_field :lastname %>
+    <%= form.label :lastname, style: "display: block", class:"text-red-600" %>
+    <%= form.text_field :lastname, class: "block w-full px-3 rounded-md text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500" %>
   </div>
 
   <div>
-    <%= form.label :mail, style: "display: block" %>
-    <%= form.text_field :mail %>
+    <%= form.label :mail, style: "display: block", class:"text-red-600" %>
+    <%= form.text_field :mail, class: "block w-full px-3 rounded-md text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500" %>
   </div>
 
   <div>
-    <%= form.label :age, style: "display: block" %>
-    <%= form.number_field :age %>
+    <%= form.label :age, style: "display: block", class:"text-red-600" %>
+    <%= form.number_field :age, class: "block w-full px-3 rounded-md text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500" %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class:"inline-block rounded w-4/5 p-2 bg-red-600 text-white font-semibold cursor-pointer border border-black text-center hover:bg-red-400 mb-4" %>
   </div>
 <% end %>

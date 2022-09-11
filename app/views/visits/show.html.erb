@@ -1,7 +1,9 @@
-<p style="color: green"><%= notice %></p>
+<main class="pt-16">
+  <section class="container mx-auto bg-zinc-50">
+    <%= render @visit %>
 
-<%= render @visit %>
-
-<div>
-  <%= link_to "Back to visits", visits_path %>
-</div>
+    <div>
+      <%= link_to "Back to visits", visits_path %>
+    </div>
+  </section>
+</main>

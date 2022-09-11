@@ -1,9 +1,10 @@
-<h1>New gym</h1>
-
-<%= render "form", gym: @gym %>
-
-<br>
-
-<div>
-  <%= link_to "Back to gyms", gyms_path %>
+<div class="container mx-auto pt-16">
+  <div class="w-full bg-white mx-auto p-10 sm:w-4/12 mt-24">
+    <h1 class="text-xl font-bold underline decoration-red-600 text-center">Crear Gimnasio</h1>
+    <%= render "form", gym: @gym %>
+    <div class="text-center">
+      <%= link_to "Cancelar", gyms_path, class:"inline-block rounded w-4/5 p-2 bg-transparent text-black font-semibold border border-black text-center transition cursor-pointer hover:bg-black mb-4 hover:text-white sm:inline-block" %>
+    </div>
+    </div>
+  </div>
 </div>

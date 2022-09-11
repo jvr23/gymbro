@@ -1,16 +1,21 @@
-<h2>Forgot your password?</h2>
+<div class="container mx-auto pt-16">
+  <div class="w-full bg-white mx-auto p-10 sm:w-4/12 mt-24">
+    <h2 class="text-xl font-bold text-red-600 text-center">¿Olvidaste tu contraseña?</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="field py-3">
+        <%= f.label :email, class:"text-red-700" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "block w-full px-3 rounded-md text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500", required:true %>
+        <em class=" block text-xs text-indigo-700 text-center">Enviaremos a esta cuenta un correo para reestablecer tu contraseña</em>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Reestablecer contraseña", class:"rounded w-full p-2 bg-red-600 text-white font-semibold cursor-pointer hover:bg-red-400 mt-4" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

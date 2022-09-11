@@ -1,10 +1,13 @@
-<h1>Editing user</h1>
-
-<%= render "form", user: @user %>
+<h1 class="text-xl font-bold text-red-600 text-center">Editar Usuario</h1>
+<div class="container mx-auto pt-16">
+  <div class="w-full bg-white mx-auto p-10 sm:w-4/12 mt-24">
+    <%= render "form", user: @user %>
+  </div>
+</div>
+<div>
+  <%= link_to "Cancelar", @user, class:"inline-block rounded w-4/5 p-2 bg-indigo-700 text-white font-semibold border border-black text-center transition cursor-pointer hover:bg-indigo-500" %> |
+  <%= link_to "Back to users", users_path %>
+</div>
 
 <br>
 
-<div>
-  <%= link_to "Show this user", @user %> |
-  <%= link_to "Back to users", users_path %>
-</div>

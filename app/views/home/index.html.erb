@@ -1,0 +1,39 @@
+  <div class="hero gb-white w-full">
+    <%= image_tag "bro-cover.jpg", alt:"Cover image", class:"h-screen sm:max-h-screen w-full object-cover" %>
+    <div class="absolute bg-indigo-600/40 absolute w-full h-full z-10 top-0"></div>
+    <div class="w-4/5 bottom-1/4 left-8 bg-transparent text-center rounded absolute z-10 p-6 sm:block sm:bottom-1/3 sm:left-1/5 sw:w1/2">
+      <h1 class="titleIndex text-white font-extrabold text-5xl drop-shadow-lg"><span class="text-amber-600">MEJORA TU SALUD</span> CON<span class="text-red-600 shadow-white"> GYMBRO</span></h1>
+    </div>
+  </div>
+<div class="container mx-auto text-white">
+    <div class="flex flex-wrap mt-48 bg-white rounded items-center p-4 pr-8">
+      <div class="w-full sm:w-2/5">
+        <%= image_tag "cody.webp", alt:"Cody Musculoso", class:"w-4/5 mx-auto"%>
+      </div>
+      <div class="w-full sm:w-3/5 bg-black text-center rounded mx-auto p-4">
+        <h4 class="titleIndex text-3xl font-bold py-4">Te acercamos a tus metas🏁</h4>
+        <p class="pb-8 text-xl">En GYMBRO te ayudamos a lograr tus metas dandote acceso a una gran cantidad de gimnasios donde puedes ejercitarte sin tener que hacer ningún tramite en esos lugares. </p>
+        <%= link_to "Registrate", new_user_registration_path, class: "rounded bg-rose-600 px-3 py-2 text-white transition hover:bg-rose-800"%>
+      </div>
+    </div>
+    <div class="flex flex-wrap-reverse mt-48 bg-white rounded items-center p-4 pr-8">
+      <div class="w-full sm:w-3/5 bg-black text-center rounded mx-auto p-4">
+        <h4 class="titleIndex text-3xl font-bold py-4">Entrena donde quieras, cuando quieras 🏋️‍♀️</h4>
+        <p class="pb-8 text-xl">Con GYMBRO  el <span class="text-amber-600">"no tengo tiempo "</span> ó <span class="text-amber-600">"El gimnasio esta muy lejos"</span> quedan atras, ya que tenemos acuerdos con la mayoria de centros de entrenamiento de tu localidad.</p>
+        <%= link_to "Registrate", new_user_registration_path, class: "rounded bg-rose-600 px-3 py-2 text-white transition hover:bg-rose-800"%>
+      </div>
+      <div class="w-full sm:w-2/5">
+        <%= image_tag "cheems.png", alt:"Cheems Musculoso", class:"w-4/5 mx-auto"%>
+      </div>
+    </div>
+    <div class="flex flex-wrap mt-48 bg-white rounded items-center p-4 pr-8">
+      <div class="w-full sm:w-2/5">
+        <%= image_tag "punch.png", alt:"Cheems amsiedad", class:"w-4/5 mx-auto"%>
+      </div>
+      <div class="w-full sm:w-3/5 bg-black text-center rounded mx-auto p-4">
+        <h4 class="titleIndex text-3xl font-bold py-4">Vence a la ansiedad con GYMBRO 💪</h4>
+        <p class="pb-8 text-xl">¿Sabias que ademas de mejorar tu salud fisica, el ejercicio mejora tu salud mental y estado de animo?</p>
+        <%= link_to "Registrate", new_user_registration_path, class: "rounded bg-rose-600 px-3 py-2 text-white transition hover:bg-rose-800"%>
+      </div>
+    </div>
+</div>

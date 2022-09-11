@@ -1,70 +1,70 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container mx-auto pt-16">
+  <div class="w-full bg-white mx-auto p-10 sm:w-4/12 mt-24">
+    <h2 class="text-xl font-bold text-red-600 text-center">Editar Usuario</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, data: { turbo: false }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, data: { turbo: false }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field pt-4">
+        <%= f.label 'Nombre', class:"text-red-600" %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "block w-full px-3 rounded-md text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
+      <div class="field pt-4">
+        <%= f.label 'Apellido(s)', class:"text-red-600" %><br />
+        <%= f.text_field :lastname, autofocus: true, autocomplete: "lastname", class: "block w-full px-3 rounded-md text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500" %>
+      </div>
 
-   <div class="field">
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname, autofocus: true, autocomplete: "lastname" %>
-  </div>
+      <div class="field pt-4">
+        <%= f.label 'Edad', class:"text-red-600" %><br />
+        <%= f.number_field :age, autofocus: true, autocomplete: "age", class: "block w-full px-3 rounded-md text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500" %>
+      </div>
+      
+      <div class="field pt-4">
+        <%= f.label 'Foto de perfil', class:"text-red-600" %><br />
+        <%= f.file_field :profile_pic, autofocus: true, autocomplete: "profile_pic", accept: 'image/png,image/gif,image/jpeg', class:"block w-full text-sm text-slate-500 pt-2 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :age %><br />
-    <%= f.number_field :age, autofocus: true, autocomplete: "age" %>
-  </div>
+      <div class="field pt-4">
+        <%= f.label 'Mail', class:"text-red-600" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "block w-full px-3 rounded-md text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500" %>
+      </div>
 
-  <%# <% if resource.account.name != 'owner' || 'admin' %>
-  <%# <div class="field">
-    <%= f.label :account <br />%>
-    <%# <%= f.collection_select :account_id, Account.where.not(name:["admin", "premium"]).order('name ASC'), :id, :name, autofocus: true, autocomplete: "account" %>
-  <%# </div> %>
-  <%# <%end%>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
 
-  <div class="field">
-    <%= f.label :profile_pic %><br />
-    <%= f.file_field :profile_pic, autofocus: true, autocomplete: "profile_pic", accept: 'image/png,image/gif,image/jpeg' %>
-  </div>
+      <div class="field pt-4">
+        <%= f.label 'Tipo de cuenta' %><br />
+          <%= f.collection_select :account_id, Account.where.not(name:["admin"]).order('name ASC'), :id, :name, {autofocus: true, autocomplete: "account", required:true}, {class:"w-full text-xl px-3 rounded-md focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"}%>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="field pt-4">
+        <%= f.label 'Contraseña Nueva', class:"text-red-600 block" %><i class="text-xs text-indigo-700">*Dejalo en blanco si no quieres cambiarlo</i><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: "block w-full px-3 rounded-md text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500" %>
+        <% if @minimum_password_length %>
+          
+          <em class="text-sm text-bold text-indigo-700">*Minimo <%= @minimum_password_length %> caracteres</em>
+        <% end %>
+      </div>
+      <div class="field pt-4">
+        <%= f.label 'Repite tu contraseña nueva', class:"text-red-600" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "block w-full px-3 rounded-md text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500" %>
+      </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+      <div class="field pt-4">
+        <%= f.label 'Contraseña actual', class:"text-red-600 text-center" %></br> <i class="text-s text-indigo-700">*Introduce tu contraseña actual para guardar los cambios</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "block w-full px-3 rounded-md text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500", required:true %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <div class="actions text-center mt-6">
+        <%= f.submit "Actualizar", class:"inline-block rounded w-4/5 p-2 bg-red-600 text-white font-semibold cursor-pointer border border-black text-center hover:bg-red-400 mb-4"%>
+        <%= link_to "Regresar", :back, class:"inline-block rounded w-4/5 p-2 bg-indigo-700 text-white font-semibold border border-black text-center transition cursor-pointer hover:bg-indigo-500 mb-8" %>
+      </div>
     <% end %>
+    <% if @user.visits.count == 0 || @user.gyms.count == 0%>
+    <div class="text-center border-2 border-dashed border-black">
+    <h3 class="font-semibold text-red-600 pt-2">¿Quieres eliminar tu cuenta?😥</h3>
+    <p class="pb-4">Aqui puedes hacerlo 👇🏻 <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"inline-block rounded w-4/5 p-2 bg-transparent text-black font-semibold border border-black text-center transition cursor-pointer hover:bg-black mb-4 hover:text-white" %></p>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

@@ -1,0 +1,15 @@
+.logo {
+  font-family: 'Audiowide', cursive;
+  /* font-size: 1.2rem; */
+  /* color: #000; */
+}
+
+#new_user>select {
+  display: block;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.titleIndex {
+  text-shadow: 1px 1px 2px red, 0 0 1em indigo, 0 0 0.2em white;
+}

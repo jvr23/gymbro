@@ -1,16 +1,8 @@
-<div id="<%= dom_id visit %>">
-<h3>Gimansios Visitados</h3>
+<div id="<%= dom_id visit %>" class="p-8 ml-2 mt-8 border border-black sm:w-4/12">
   <p>
-    <%# <strong>User:</strong> %>
-    <%# visit.user.name %>
+    <strong class="text-red-600 text-xl">Gimnasio:</strong></br>
+    🦾<%= visit.gym.name %>
   </p>
-
-  <p>
-    <strong>Gimnasio:</strong>
-    <%= visit.gym.name %>
-  </p>
-
-  <p>Lo visitaste el día</p>
-  <span><%= visit.created_at.strftime('%B %e at %l:%M %p') %></span>
-
+  <p class="font-bold">Registraste esta visita el día</p>
+  <span class="font-bold text-indigo-700"><%= visit.created_at.strftime('%d/%m/%y a las %l:%M %p') %></span>
 </div>

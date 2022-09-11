@@ -1,0 +1,37 @@
+<header class="bg-transparent w-full m-0 fixed z-20 transition-all">
+  <div class="mx-auto flex max-w-7xl items-center justify-between p-4">
+  <div class="font-logo logo text-2xl text-black">
+    <%= link_to root_path, id:'gymLink' do %>
+      <%# <%= image_tag 'cody.webp', class:"w-14 inline"%>
+      GYM<span class="text-red-600">BRO</span>💪
+      <% end %>
+  </div>
+    <nav class="flex items-center space-x-4 text-sm font-medium text-black">
+      <% if user_signed_in? %>
+        <%= link_to "Mi Perfil", user_path(current_user.id), class: "rounded bg-indigo-700 px-3 py-2 text-white transition hover:bg-indigo-900"%>
+        <%= link_to "Cerrar Sesión", destroy_user_session_path, data: { turbo_method: :delete }, class:"rounded bg-rose-600 px-3 py-2 text-white transition hover:bg-rose-800"%>
+      <%else%>
+        <%= link_to "Iniciar Sesión", new_user_session_path, class: "rounded bg-white px-3 py-2 border border-black transition hover:bg-gray-100 hover:border-2 sm:inline"%>         
+        <%= link_to "Registrate", new_user_registration_path, class: "rounded bg-rose-600 px-3 py-2 text-white transition hover:bg-rose-800"%>
+      <%end%>
+      <% if user_signed_in? && user_is_owner? %>
+        <div class="relative cursor-pointer notificationIcons" id="notificationIcon" onclick="console.log(this)" >
+          <div class="absolute left-0 top-0  bg-red-500 rounded-full">
+            <span id="qtyNotification" class="text-sm text-white p-1">0</span>
+          </div>
+          <div class="p-2">
+                <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="text-white w-6 h-6"
+              viewBox="0 0 16 16">
+              <path
+                d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"
+              />
+            </svg>
+          </div>
+        </div>
+      <%end%>
+    </nav>
+  </div>
+</header>

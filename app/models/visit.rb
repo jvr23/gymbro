@@ -17,6 +17,6 @@ class Visit < ApplicationRecord
   private
 
     def send_notificacion
-      ActionCable.server.broadcast("notification_#{self.gym.user_id}", {body: "El usuario #{self.user.name} desea acceder al gimansio #{self.gym.name}, ¿Aceptar?"})
+      ActionCable.server.broadcast("notification_#{self.gym.user_id}", {user:"#{self.user.name}", gym:"#{self.gym.name}", created_date:"#{self.created_at}"})
     end
 end

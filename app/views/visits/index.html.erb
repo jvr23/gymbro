@@ -1,15 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<main class="pt-16">
+  <div id="gyms" class="container bg-white text-center mx-auto pt-16 pb-16">
 
-<h1>Visits</h1>
+  <%# <%= cookies.encrypted['_gymbro_session']['warden.user.user.key'][0][0] %>
+  <h1 class="text-3xl font-bold underline decoration-wavy decoration-red-600 pb-4"">Gimnasios Visitados</h1>
 
-<div id="visits">
-  <% @visits.each do |visit| %>
-    <%= render visit %>
-    <p>
-      <%= link_to "Show this visit", visit %>
-    </p>
-  <% end %>
-</div>
-<% if policy(@visits).new? %>
-  <%= link_to "New visit", new_visit_path %>
-<% end %>
+  <div id="visits" class="flex flex-wrap justify-evenly">
+    <% @visits.each do |visit| %>
+      <%= render visit %>
+    <% end %>
+  </div>
+  <div class="mt-8">
+    <% if policy(@visits).new? %>
+      <%= link_to "Visitar Gimnasio", new_visit_path, class:"block rounded mx-auto w-4/5 p-4 bg-red-600 text-white font-semibold cursor-pointer hover:bg-red-400" %>
+    <% end %>
+  </div>
+  </div>
+</main>
+

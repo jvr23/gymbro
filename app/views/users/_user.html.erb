@@ -1,51 +1,50 @@
-<div id="<%= dom_id user %>">
-  
-  <p>
-    <% if user.profile_pic.attached? %>
-      <%= image_tag user.profile_pic, class:"rounded-full w-40", alt:"profile picture" %>
-    <% else %>
-      <%= image_tag "default-user.png", alt:"profile picture" %>
-    <% end %>
-  </p>
-
-  <p>
-    <strong>Name:</strong>
+<main class="pt-16">
+  <section class="container mx-auto bg-zinc-50">
+    <div class="w-full h-96" style="background-image: url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80');">
+      <span id="blackOverlay" class="absolute container h-96 opacity-50 bg-black"></span>
+    </div>
+  </section>
+  <section class="relative">
+    <div class="profileCard absolute -bottom-24 left-1/2 transform -translate-x-1/2">
+      <div class="h-96">
+        <%= image_tag user.profile_pic, class:"rounded-full w-52 h-52 ring-2 ring-red-600 ring-offset-4 ring-offset-white", alt:"profile picture"%>
+      </div>
+    </div>
+  </section>
+</main>
+<div id="<%= dom_id user %>" class="container bg-white text-center mx-auto pt-16 pb-16">
+<div class="w-4/5 bg-slate-200 mx-auto shadow-lg pt-2">
+  <div class="pt-4">
+    <strong class="text-red-600">Nombre:</strong></br>
     <%= user.name %>
-  </p>
-
-  <p>
-    <strong>Lastname:</strong>
-    <%= user.lastname %>
-  </p>
-
-  <p>
-    <strong>Mail:</strong>
-    <%= user.email %>
-  </p>
-
-  <p>
-    <strong>Account type:</strong>
-    <%= user.account.name %>
-  </p>
-
-  <p>
-    <strong>Age:</strong>
-    <%= user.age %>
-  </p>
-
-  <div class="options">
-    <%# <%=current_user.account.name%>
-    <% if  current_user.account.name == 'admin'%>
-      <%= link_to "Crear Usuario", new_user_registration_path %>
-      <%= link_to "Gimnasios", gyms_path %>
-    <% elsif current_user.account.name == 'owner' %>
-      <%= link_to "Mis Gimnasios", gyms_path %>
-    <%else%>
-      <%= link_to "Gimnasios Visitados", gyms_path %>
-    <% end %>
-
-
   </div>
 
+  <div class="pt-4">
+    <strong class="text-red-600">Apellido(s):</strong></br>
+    <%= user.lastname %>
+  </div>
 
-</div>
+  <div class="pt-4">
+    <strong class="text-red-600">Mail:</strong></br>
+    <%= user.email %>
+  </div>
+
+  <div class="pt-4">
+    <strong class="text-red-600">Tipo de cuenta:</strong></br>
+    <%= user.account.name %>
+  </div>
+
+  <div class="pt-4 pb-6">
+    <strong class="text-red-600">Edad:</strong></br>
+    <%= user.age %>
+  </div>
+  <hr>
+ <div class="pt-6 pb-4 sm:flex sm:justify-around sm:items-baseline">
+    <% if  user_is_admin?%>
+      <%= link_to "Ver gimnasios", gyms_path, class:"block rounded w-full p-2 bg-orange-500 text-white font-semibold cursor-pointer hover:bg-amber-400 mt-8 sm:w-auto" %>
+    <% elsif user_is_owner? %>
+      <%= link_to "Ver mis gimnasios", gyms_path, class:"block rounded w-full p-2 bg-red-600 text-white font-semibold cursor-pointer hover:bg-red-400 mt-8 sm:w-auto" %>
+    <%else%>
+      <%= link_to "Gimnasios Visitados", visits_path, class:" block rounded p-2 bg-black text-white font-semibold border border-black text-center mt-6 mb-6 transition cursor-pointer hover:bg-transparent hover:text-black sm:w-auto" %>
+    <% end %>
+  

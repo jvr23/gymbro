@@ -1,71 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Gymbro</title>
+    <title>Gymbro - Mis Gimnasios</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
+    <%= stylesheet_link_tag "tailwind.min.css"%>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css2?family=Audiowide&display=swap"%>
+    <%= stylesheet_link_tag "styles.css"%>
     <%= javascript_importmap_tags %>
   </head>
-
-  <body class="leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-fixed" style="background-image: url('<%=asset_path "header.png"%>');">
-  <header>
-  <div class="mx-auto flex max-w-7xl items-center justify-between p-4">
-    <nav class="hidden items-center space-x-1 text-sm font-medium text-gray-800 md:flex">
-      <a href="#" class="rounded bg-white px-3 py-2 transition hover:bg-gray-100">Features</a>
-      <a href="#" class="rounded bg-white px-3 py-2 transition hover:bg-gray-100">Pricing</a>
-    </nav>
-    <button class="flex appearance-none p-1 text-gray-500 md:hidden">
-      <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 256 256">
-        <line
-          x1="40"
-          y1="128"
-          x2="216"
-          y2="128"
-          fill="none"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="24"></line>
-        <line
-          x1="40"
-          y1="64"
-          x2="216"
-          y2="64"
-          fill="none"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="24"></line>
-        <line
-          x1="40"
-          y1="192"
-          x2="216"
-          y2="192"
-          fill="none"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="24"></line>
-      </svg>
-    </button>
-    <%= link_to "GYMBRO", root_path%>
-    <nav class="flex items-center space-x-1 text-sm font-medium text-gray-800">
-    <% if user_signed_in? %>
-      <%= link_to "Cerrar Sesión", destroy_user_session_path, data: { turbo_method: :delete }, class: "rounded bg-rose-600 px-3 py-2 text-white transition hover:bg-black-700"%>
-      <%= link_to "Mi Perfil", user_path(current_user.id), class: "rounded bg-black-800 px-3 py-2 text-white transition hover:bg-black-700"%>
-    <%else%>
-      <%= link_to "Iniciar Sesión", new_user_session_path, class: "rounded bg-white px-3 py-2 transition hover:bg-gray-100 sm:inline"%>         
-      <%= link_to "Registrate", new_user_registration_path, class: "rounded bg-rose-600 px-3 py-2 text-white transition hover:bg-rose-700"%>
-    <%end%>
-    </nav>
-  </div>
-</header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <body class="leading-normal tracking-normal text-black m-0 bg-cover bg-fixed" style="background-image: url('<%=asset_path "header.png"%>');">
+    <%= render "partials/header" %>
+    <div class="absolute z-50 top-20 left-2 flex justify-center bg-blue-600 text-white font-semibold text-2xl"">
+    <p class="notice px-2"><%= notice %></p>
+    </div>
+    <div class="absolute z-50 top-20 left-2 flex justify-center bg-rose-600 text-white font-semibold text-2xl">
+      <p class="alert px-2"><%= alert %></p>
+    </div>
     <%= yield %>
+    <%= hidden_field_tag 'user_id', current_user, {id: "user_id"} %>
+    <% if current_user%>
+      <% if user_is_premium? || user_is_owner? %>
+        <%= render "partials/modal_notifications" %>
+      <% end %>
+    <% end %>
+    <%= render "partials/footer" %>
   </body>
 </html>

@@ -1,7 +1,7 @@
 class NotificationChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "notificaction_#{current_user_id}"
-      puts params
+    stream_from "notification_#{current_user.id}"
+      # puts params
   end
 
   def unsubscribed

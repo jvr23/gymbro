@@ -16,11 +16,15 @@ include UsersHelper
   end
 
   def create?
-    return true if user_is_owner? || user_is_admin?
+    @user.account.name == 'owner' || @user.account.name == 'admin'
+    # user_is_owner? || user_is_admin?
   end
 
   def update?
-    return true if user_is_owner? && user_own_gym?
-    user_is_admin?
+    @user.account.name == 'owner' || @user.account.name == 'admin'
+  end
+
+  def destroy?
+    @user.account.name == 'owner' || @user.account.name == 'admin'  
   end
 end

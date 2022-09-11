@@ -12,7 +12,8 @@ class VisitsController < ApplicationController
 
   # GET /visits/new
   def new
-    @visit = Visit.new
+    @visit = authorize Visit.new
+
   end
 
   # GET /visits/1/edit
@@ -21,12 +22,12 @@ class VisitsController < ApplicationController
 
   # POST /visits or /visits.json
   def create
-    @visit = Visit.new(visit_params)
+    @visit = authorize Visit.new(visit_params)
 
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to visit_url(@visit), notice: "Visit was successfully created." }
-        format.json { render :show, status: :created, location: @visit }
+        format.html { redirect_to visits_url, notice: "Tu visita se registro con exito 🎉." }
+        format.json { render :index, status: :created, location: @visit }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @visit.errors, status: :unprocessable_entity }

@@ -23,6 +23,7 @@ class GymsController < ApplicationController
 
   # POST /gyms or /gyms.json
   def create
+    # @gym.user_id = current_user.id
     @gym = authorize Gym.new(gym_params)
 
     respond_to do |format|
@@ -74,9 +75,9 @@ class GymsController < ApplicationController
     # end
 
     # Only allow a list of trusted parameters through.
-    # def gym_params
-    #   params.require(:gym).permit(:name, :address, :opens, :closes)
-    # end
+    def gym_params
+      params.require(:gym).permit(:user_id, :name, :address, :opens, :closes)
+    end
 
     # def my_gyms
     #   if user_is_owner?

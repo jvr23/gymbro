@@ -8,6 +8,22 @@
   </head>
 
   <body>
+    <header style="width:100%;background-color:#000000"class="bg-transparent w-full m-0 fixed z-20 transition-all">
+  <div style="margin:0 auto; display:flex align-items:center justify-content: space-between padding:8px" class="mx-auto flex max-w-7xl items-center justify-between p-4">
+  <div style="font-size:1.25rem;text-decoration:none;">
+    <%= link_to root_url, {style:'text-decoration:none;', id:'gymLink'} do %>
+      <span style="color:#FFFFFF;">GYM<span style="color:#FF0000" class="text-red-600">BRO</span></span>
+      <% end %>
+  </div>
+  </div>
+</header>
     <%= yield %>
+    <footer style="width:100%;background-color:#000000">
+      <div style="margin: 30px auto;">
+        <div style="text-align:center;text-decoration:none;">
+        <%= link_to root_url do %>
+          <span style="color:#FFFFFF;">GYM<span style="color:#FF0000;">BRO</span></span>
+          <% end %>
+    </footer>
   </body>
 </html>

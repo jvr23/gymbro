@@ -10,28 +10,31 @@
       </ul>
     </div>
   <% end %>
-
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%#= form.label :user_id, style: "display: block" %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
+  <div class="pt-4">
+    <%= form.label 'Nombre', style: "display: block", class:"text-red-600" %>
+    <%= form.text_field :name, class: "block w-full px-3 rounded-md text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500", required:true %>
   </div>
 
-  <div>
-    <%= form.label :address, style: "display: block" %>
-    <%= form.text_field :address %>
+  <div class="pt-4">
+    <%= form.label 'Dirección', style: "display: block", class:"text-red-600" %>
+    <%= form.text_field :address, class: "block w-full px-3 rounded-md text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500", required:true %>
   </div>
 
-  <div>
-    <%= form.label :opens, style: "display: block" %>
-    <%= form.time_field :opens %>
+  <div class="pt-4">
+    <%= form.label 'Hora de apertura', style: "display: block", class:"text-red-600" %>
+    <%= form.time_field :opens, class: "block w-full px-3 rounded-md text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500", required:true %>
   </div>
 
-  <div>
-    <%= form.label :closes, style: "display: block" %>
-    <%= form.time_field :closes %>
+  <div class="pt-4">
+    <%= form.label 'Hora de cierre', style: "display: block", class:"text-red-600" %>
+    <%= form.time_field :closes, class: "block w-full px-3 rounded-md text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500", required:true %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="pt-4 text-center">
+    <%= form.submit class:"inline-block rounded w-4/5 p-2 bg-red-600 text-white font-semibold cursor-pointer border border-black text-center hover:bg-red-400 mb-4" %>
   </div>
 <% end %>

@@ -1,15 +1,20 @@
-<p style="color: green"><%= notice %></p>
-<h1>Hola soy el paulon</h1>
-<h1>Gyms</h1>
-
-<div id="gyms">
+<main class="pt-16">
+<div id="gyms" class="container bg-white text-center mx-auto pt-16 pb-16">
+<h1 class="text-3xl font-bold underline decoration-wavy decoration-red-600 pb-4">Mis Gimnasios</h1>
+  <div class="w-4/5 bg-slate-200 mx-auto shadow-lg pt-2 flex flex-wrap justify-around">
   <% @gyms.each do |gym| %>
-    <%= render gym %>
-    <p>
-      <%= link_to "Show this gym", gym %>
-    </p>
+    <div class="border m-2.5 p-4 border-dashed border-2 border-red-600 w-full sm:w-5/12 sm:mb-4 sm:mr-3">
+      <%= render gym %>
+      <div class="w-full my-4">
+      <%= link_to "Ver más", gym, class:"rounded w-full p-2 bg-indigo-700 text-white font-semibold border border-black text-center transition cursor-pointer hover:bg-indigo-500" %>
+      </div>
+    </div>
   <% end %>
-</div>
 <% if policy(@gyms).new? %>
-  <%= link_to "New gym", new_gym_path %>
+  <div class="w-full py-8">
+    <%= link_to "Crear Gimnasio +", new_gym_path, class:"block rounded-full mx-auto w-4/5 p-4 bg-red-600 text-white font-semibold cursor-pointer hover:bg-red-400 sm:inline" %>
+  </div> 
 <% end %>
+    </div>
+  </div>
+</main>
