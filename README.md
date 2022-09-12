@@ -12,21 +12,25 @@ These are the users that are created with db:seed
 
 Free Account
 - free@gymbro.com
+
 Pass
 - 123123
 
 Premium Account
 - premium@gymbro.com
+
 Pass
 - 123123
 
 Owner Account
 - owner@gymbro.com
+
 Pass
 - 123123
 
 Admin Account
 - admin@gymbro.com
+
 Pass
 - 123123
 
