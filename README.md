@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+GYMBRO
 
-Things you may want to cover:
+First clone the project 🐱‍🐉
 
-* Ruby version
+Then run rails db:migrate to run all the migrations.
 
-* System dependencies
+Run rails db:seed to create the type accounts (necesary to register new users) and one user of eahc type of account.
 
-* Configuration
+Run rails s
 
-* Database creation
+open localhost:3000 in your browser and you shuld see the home page.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Have Fun 🤓
