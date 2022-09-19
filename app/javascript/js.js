@@ -1,5 +1,4 @@
 function notif(){
-  console.log (':O');
   const notification = document.querySelector('#notification');
   const contDiv = document.querySelector('#chec-div');
   contDiv.classList.remove('hidden');
@@ -19,7 +18,7 @@ window.addEventListener("turbo:load",function(){
   })
   window.addEventListener('scroll',()=>{
     if(window.scrollY < 100){
-      header.style.backgroundColor = 'transparent';
+      header.style.backgroundColor = '#ffffff';
       headerLogo.style.color = '#000'
     }else if(header.style.backgroundColor !== '#000' && window.scrollY > 100){
       header.style.backgroundColor = 'black';
