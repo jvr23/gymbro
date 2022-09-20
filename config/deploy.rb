@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.17.1"
 
-set :application, "root"
+set :application, "gymbro"
 set :repo_url, "git@github.com:jvr23/gymbro.git"
 
 server '147.182.251.179', port: 22, roles: [:web, :app, :db], primary: true

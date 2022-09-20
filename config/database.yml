@@ -17,7 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: db
+  host: postgresql
   username: postgres
   password: gymbr09323
   # For details on connection pooling, see Rails configuration guide
@@ -84,6 +84,7 @@ test:
 #
 production:
   <<: *default
+  host: ubuntu-gymbro
   database: gymbro_production
   username: gymbro
   password: <%= ENV["GYMBRO_DATABASE_PASSWORD"] %>
