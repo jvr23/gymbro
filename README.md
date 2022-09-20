@@ -1,24 +1,41 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+GYMBRO
 
-Things you may want to cover:
+First clone the project 🐱‍🐉
 
-* Ruby version
+Then run rails db:migrate to run all the migrations.
 
-* System dependencies
+Run rails db:seed to create the type accounts (necesary to register new users) and one user of each type of account.
 
-* Configuration
+These are the users that are created with db:seed
 
-* Database creation
+Free Account
+- free@gymbro.com
 
-* Database initialization
+Pass
+- 123123
 
-* How to run the test suite
+Premium Account
+- premium@gymbro.com
 
-* Services (job queues, cache servers, search engines, etc.)
+Pass
+- 123123
 
-* Deployment instructions
+Owner Account
+- owner@gymbro.com
 
-* ...
+Pass
+- 123123
+
+Admin Account
+- admin@gymbro.com
+
+Pass
+- 123123
+
+Run rails s
+
+open localhost:3000 in your browser and you shuld see the home page.
+
+Have Fun 🤓
