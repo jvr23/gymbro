@@ -87,4 +87,5 @@ production:
   host: localhost
   database: gymbro_production
   username: gymbro
+  password: gymbr09323
   password: <%= ENV["GYMBRO_DATABASE_PASSWORD"] %>
