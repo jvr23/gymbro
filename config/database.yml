@@ -84,7 +84,7 @@ test:
 #
 production:
   <<: *default
-  host: ubuntu-gymbro
+  host: localhost
   database: gymbro_production
   username: gymbro
   password: <%= ENV["GYMBRO_DATABASE_PASSWORD"] %>
